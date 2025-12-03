@@ -66,11 +66,12 @@ h1{margin:0;font-size:24px}
       </div>
     </div>
 
-    <div class="actions">
-      <button class="btn" id="printBtn" title="Print / Save as PDF">⬇ Save as PDF</button>
-      <button class="btn ghost" id="copyMail">Copy Email</button>
-      <button class="btn ghost" id="toggleTheme">Toggle Theme</button>
-    </div>
+   <div class="actions">
+  <a class="btn" href="/assets/resume.pdf" download>⬇ Download PDF</a>
+  <button class="btn ghost" id="copyMail">Copy Email</button>
+  <button class="btn ghost" id="toggleTheme">Toggle Theme</button>
+</div>
+
   </header>
 
   <main class="grid" role="main" aria-label="Interactive resume">
@@ -260,4 +261,5 @@ document.getElementById('closeModal').addEventListener('click', ()=> modalBk.sty
 modalBk.addEventListener('click', (e)=> { if(e.target === modalBk) modalBk.style.display = 'none' });
 </script>
 </body>
+
 </html>
