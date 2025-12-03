@@ -21,7 +21,7 @@ The webpage is fully responsive, cyber-themed, and includes:
 ---
 
 ## 📄 Download My Resume
-- **PDF:** https://sripathi-msp.github.io/assets/SP Resume No Marks  or Pic.pdf.pdf  
+- **PDF:** https://sripathi-msp.github.io/assets/resume.pdf  
 
 
 ---
