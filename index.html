@@ -8,19 +8,25 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 <style>
 :root{
-  --bg:#071023; --card:#0d1624; --muted:#93a7bf; --accent:#22c1c3; --accent2:#7b61ff;
-  --glass: rgba(255,255,255,0.03); --text:#e7f0fb; --maxw:1000px; --radius:12px; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+  --bg-1: #030617; --bg-2:#071023;
+  --card:#0d1624; --muted:#93a7bf; --accent:#22c1c3; --accent2:#7b61ff;
+  --glass: rgba(255,255,255,0.03); --text:#e7f0fb; --maxw:1000px; --radius:12px;
+  --ff: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
 }
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,#030617,#071023);color:var(--text);-webkit-font-smoothing:antialiased;padding:28px}
-.wrap{max-width:var(--maxw);margin:0 auto}
+html,body{height:100%}
+body{
+  margin:0; font-family:var(--ff); background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color:var(--text); -webkit-font-smoothing:antialiased; padding:28px;
+}
+.wrap{max-width:var(--maxw); margin:0 auto}
 .header{display:flex;align-items:center;gap:16px}
 .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021;font-size:22px}
 h1{margin:0;font-size:24px}
 .lead{color:var(--muted);margin-top:6px;font-size:13px}
-.actions{margin-left:auto;display:flex;gap:8px}
-.btn{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;color:#021;padding:9px 12px;border-radius:10px;font-weight:700;cursor:pointer}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--muted)}
+.actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;color:#021;padding:9px 12px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--muted);font-weight:600;padding:8px 10px}
 .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
 .card{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 6px 24px rgba(2,6,23,0.6)}
 .muted{color:var(--muted)}
@@ -33,15 +39,15 @@ h1{margin:0;font-size:24px}
 .event::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--accent);position:absolute;left:-18px;top:6px}
 .event .meta{color:var(--muted);font-size:13px}
 .skills{display:flex;flex-wrap:wrap;gap:8px}
-.skill{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,0.02);cursor:pointer}
-.skill.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#021;border:none}
+.skill{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,0.02);cursor:pointer;user-select:none}
+.skill.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#021;font-weight:700;box-shadow:0 6px 18px rgba(34,193,195,0.14)}
 .projects{display:grid;grid-template-columns:1fr;gap:10px}
 .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
 .project h4{margin:0;font-size:15px}
 .tag{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted);margin-right:6px}
 .right .card-title{display:flex;justify-content:space-between;align-items:center}
 .cert-list{display:flex;flex-direction:column;gap:8px}
-.download{display:flex;gap:8px;margin-top:12px}
+.download{display:flex;gap:8px;margin-top:12px;align-items:center}
 .quicklinks a{display:block;color:var(--muted);text-decoration:none;margin-top:6px}
 .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
 
@@ -52,216 +58,232 @@ h1{margin:0;font-size:24px}
 
 /* responsive */
 @media (max-width:980px){.grid{grid-template-columns:1fr}.actions{margin-left:0}.logo{width:60px;height:60px}}
-@media print{body{background:white;color:black}.actions,.btn,.modal-backdrop{display:none}}
+@media print{body{background:white;color:black}.actions,.btn.ghost,.modal-backdrop{display:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="header">
-    <div style="display:flex;gap:14px;align-items:center">
-      <div class="logo">SM</div>
-      <div>
-        <h1>SRIPATHI M</h1>
-        <div class="lead">Penetration Tester & OSINT Investigator • CEH (in progress) • CSE</div>
-      </div>
-    </div>
-
-   <div class="actions">
-  <a class="btn" href="/assets/SP Resume No Marks  or Pic.pdf" download>⬇ Download PDF</a>
-  <button class="btn ghost" id="copyMail">Copy Email</button>
-  <button class="btn ghost" id="toggleTheme">Toggle Theme</button>
-</div>
-
-  </header>
-
-  <main class="grid" role="main" aria-label="Interactive resume">
-    <!-- LEFT COLUMN -->
-    <section>
-      <div class="card section profile">
-        <h3>Profile</h3>
-        <p>Enthusiastic and hardworking person with strong ethics and integrity. Focused on practical penetration testing, OSINT investigations, and developer-friendly remediation.</p>
-
-        <div class="contacts">
-          <div><strong class="muted">Email</strong>: <a href="mailto:mspsri007@proton.me">mspsri007@proton.me</a></div>
-          <div><strong class="muted">Location</strong>: Coimbatore</div>
-          <div><strong class="muted">GitHub</strong>: <a href="https://github.com/sripathi-msp" target="_blank">github.com/sripathi-msp</a></div>
-          <div><strong class="muted">LinkedIn</strong>: <a href="https://www.linkedin.com/in/sripathi-m-61241b349/" target="_blank">linkedin.com/in/sripathi-msp</a></div>
+  <div class="wrap">
+    <header class="header" role="banner">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="logo" aria-hidden="true">SM</div>
+        <div>
+          <h1>SRIPATHI M</h1>
+          <div class="lead">Penetration Tester & OSINT Investigator • CEH (in progress) • CSE</div>
         </div>
       </div>
 
-      <div class="card section">
-        <h3>Experience & Education (Timeline)</h3>
-        <div class="timeline" aria-hidden="false">
-          <div class="event">
-            <div><strong>2024 – Present</strong></div>
-            <div class="meta">Freelance Pentesting & OSINT — Projects, labs, bug bounty practice</div>
-          </div>
+      <div class="actions" role="navigation" aria-label="Actions">
+        <!-- Download button points to your uploaded PDF in /assets -->
+        <a class="btn" href="/assets/resume.pdf" download aria-label="Download resume PDF">⬇ Download PDF</a>
+        <button class="btn ghost" id="copyMail" aria-label="Copy email to clipboard">Copy Email</button>
+        <button class="btn ghost" id="toggleTheme" aria-label="Toggle theme">Toggle Theme</button>
+      </div>
+    </header>
 
-          <div class="event">
-            <div><strong>Aug 2022 – May 2025</strong></div>
-            <div class="meta">B.E., Computer Science & Engineering — Sri Krishna College of Engineering & Technology (Anna University)</div>
-          </div>
+    <main class="grid" role="main" aria-label="Interactive resume content">
+      <!-- LEFT -->
+      <section>
+        <div class="card section profile" id="profileSection">
+          <h3>Profile</h3>
+          <p>Enthusiastic and hardworking person with strong ethics and integrity. Focused on practical penetration testing, OSINT investigations, and developer-friendly remediation.</p>
 
-          <div class="event">
-            <div><strong>Aug 2019 – Jun 2022</strong></div>
-            <div class="meta">Diploma, Sri Krishna Polytechnic College</div>
+          <div class="contacts" aria-label="contact information">
+            <div><strong class="muted">Email:</strong> <a href="mailto:mspsri007@proton.me">mspsri007@proton.me</a></div>
+            <div><strong class="muted">Location:</strong> Coimbatore</div>
+            <div><strong class="muted">GitHub:</strong> <a href="https://github.com/sripathi-msp" target="_blank" rel="noopener">github.com/sripathi-msp</a></div>
+            <div><strong class="muted">LinkedIn:</strong> <a href="https://www.linkedin.com/in/sripathi-m-61241b349/" target="_blank" rel="noopener">linkedin.com/in/sripathi-msp</a></div>
           </div>
         </div>
-      </div>
 
-      <div class="card section">
-        <h3>Skills (click to highlight)</h3>
-        <div class="skills" id="skillsList">
-          <div class="skill" data-cat="pentest">Burp Suite</div>
-          <div class="skill" data-cat="pentest">Nmap</div>
-          <div class="skill" data-cat="pentest">SQLMap</div>
-          <div class="skill" data-cat="osint">Sherlock</div>
-          <div class="skill" data-cat="osint">ExifTool</div>
-          <div class="skill" data-cat="osint">Maltego CE</div>
-          <div class="skill" data-cat="dev">Java</div>
-          <div class="skill" data-cat="dev">JavaScript (React)</div>
-          <div class="skill" data-cat="dev">HTML & CSS</div>
-          <div class="skill" data-cat="dev">MySQL (basic)</div>
-          <div class="skill" data-cat="hw">Hardware & Assembly</div>
-        </div>
-      </div>
+        <div class="card section">
+          <h3>Experience & Education (Timeline)</h3>
+          <div class="timeline" aria-hidden="false">
+            <div class="event">
+              <div><strong>2024 – Present</strong></div>
+              <div class="meta">Freelance Pentesting & OSINT — Projects, labs, bug bounty practice</div>
+            </div>
 
-      <div class="card section">
-        <h3>Projects</h3>
-        <div class="projects" id="projectsList">
-          <div class="project" data-title="Neural Network Model for Cortisol Regulation" data-content="Developed a Random Forest model to predict cortisol spikes using clinical features. Responsible for data collection, preprocessing, feature engineering, and model validation.">
-            <h4>Neural Network Model — Cortisol Regulation</h4>
-            <div style="margin-top:8px"><span class="tag">ML</span><span class="tag">Random Forest</span></div>
-          </div>
+            <div class="event">
+              <div><strong>Aug 2022 – May 2025</strong></div>
+              <div class="meta">B.E., Computer Science & Engineering — Sri Krishna College of Engineering & Technology (Anna University)</div>
+            </div>
 
-          <div class="project" data-title="Online Voting & Polling System" data-content="Built a secure voting platform prototype focusing on ballot integrity and accessibility. Addressed authentication and tamper-resistant logging.">
-            <h4>Online Voting & Polling System</h4>
-            <div style="margin-top:8px"><span class="tag">Web</span><span class="tag">Security</span></div>
-          </div>
-
-          <div class="project" data-title="Chess Academy Admission Portal" data-content="Developed training modules and admission workflows for an online chess academy with tactics trainer and mentoring components.">
-            <h4>Chess Academy Admission Portal</h4>
-            <div style="margin-top:8px"><span class="tag">Web</span><span class="tag">Portal</span></div>
-          </div>
-
-          <div class="project" data-title="Student Counselling Management System" data-content="Designed a system to manage student counselling applications and streamline higher-studies guidance.">
-            <h4>Student Counselling System</h4>
-            <div style="margin-top:8px"><span class="tag">Management</span></div>
+            <div class="event">
+              <div><strong>Aug 2019 – Jun 2022</strong></div>
+              <div class="meta">Diploma in Computer Technology, Sri Krishna Polytechnic College</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- RIGHT COLUMN -->
-    <aside class="right">
-      <div class="card section">
-        <div class="card-title">
-          <h3>Certifications & Training</h3>
-          <div class="muted">Progress</div>
+        <div class="card section">
+          <h3>Skills (click to highlight)</h3>
+          <div class="skills" id="skillsList" aria-label="skills list">
+            <span class="skill" data-skill="burp">Burp Suite</span>
+            <span class="skill" data-skill="nmap">Nmap</span>
+            <span class="skill" data-skill="sqlmap">SQLMap</span>
+            <span class="skill" data-skill="sherlock">Sherlock</span>
+            <span class="skill" data-skill="exiftool">ExifTool</span>
+            <span class="skill" data-skill="maltego">Maltego CE</span>
+            <span class="skill" data-skill="java">Java</span>
+            <span class="skill" data-skill="react">JavaScript (React)</span>
+            <span class="skill" data-skill="htmlcss">HTML & CSS</span>
+            <span class="skill" data-skill="mysql">MySQL (basic)</span>
+            <span class="skill" data-skill="hardware">Hardware & Assembly</span>
+          </div>
         </div>
-        <div class="cert-list">
-          <div><strong>Certified Ethical Hacker (CEH)</strong> — EC-Council (In progress; expected Jan 2026)</div>
-          <div><strong>Cybersecurity Certificate</strong> — HackOverSecurity</div>
+
+        <div class="card section">
+          <h3>Projects</h3>
+          <div class="projects" id="projectsList" aria-label="projects list">
+            <div class="project" data-title="Neural Network Model for Cortisol Regulation" data-content="Developed a Random Forest model to predict cortisol spikes using clinical features. Responsible for data collection, preprocessing, feature engineering, and model validation.">
+              <h4>Neural Network Model — Cortisol Regulation</h4>
+              <div style="margin-top:8px"><span class="tag">ML</span><span class="tag">Random Forest</span></div>
+            </div>
+
+            <div class="project" data-title="Online Voting & Polling System" data-content="Built a secure voting platform prototype focusing on ballot integrity and accessibility. Addressed authentication and tamper-resistant logging.">
+              <h4>Online Voting & Polling System</h4>
+              <div style="margin-top:8px"><span class="tag">Web</span><span class="tag">Security</span></div>
+            </div>
+
+            <div class="project" data-title="Chess Academy Admission Portal" data-content="Developed training modules and admission workflows for an online chess academy with tactics trainer and mentoring components.">
+              <h4>Chess Academy Admission Portal</h4>
+              <div style="margin-top:8px"><span class="tag">Web</span><span class="tag">Portal</span></div>
+            </div>
+
+            <div class="project" data-title="Student Counselling Management System" data-content="Designed a system to manage student counselling applications and streamline higher-studies guidance.">
+              <h4>Student Counselling System</h4>
+              <div style="margin-top:8px"><span class="tag">Management</span></div>
+            </div>
+          </div>
         </div>
 
-        <div class="download">
-          <button class="btn" id="printBtn2">Print / Save PDF</button>
-          <a class="btn ghost" href="mailto:mspsri007@proton.me">Email Me</a>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="right">
+        <div class="card section">
+          <div class="card-title">
+            <h3>Certifications & Training</h3>
+            <div class="muted">Progress</div>
+          </div>
+          <div class="cert-list">
+            <div><strong>Certified Ethical Hacker (CEH)</strong> — EC-Council (In progress; expected Jan 2026)</div>
+            <div><strong>Cybersecurity Certificate</strong> — HackOverSecurity</div>
+          </div>
+
+          <div class="download">
+            <a class="btn" href="/assets/SP Resume No Marks  or Pic.pdf" download aria-label="Download PDF">⬇ Download PDF</a>
+            <button class="btn ghost" id="printBtn2" aria-label="Print resume">Print / Save</button>
+          </div>
         </div>
-      </div>
 
-      <div class="card section">
-        <h3>Simulations & Virtual Experience</h3>
-        <div class="muted" style="margin-top:8px;line-height:1.45">
-          Deloitte Australia — Cyber Job Simulation (Forage) — Aug 2025<br/>
-          DLA Piper — Global Cyber & Data Privacy (Forage) — Aug 2025<br/>
-          Clifford Chance — Cyber Security Global Simulation (Forage) — Aug 2025<br/>
-          Tata — Cybersecurity Security Analyst (Forage) — Aug 2025<br/>
-          PwC US — Cyber Security Consulting (Forage) — Aug 2025<br/>
-          Telstra — Cybersecurity Simulation (Forage) — Aug 2025<br/>
-          AIG — Shields Up: Cybersecurity (Forage) — Sep 2025<br/>
-          Commonwealth Bank — Intro to Cybersecurity (Forage) — Sep 2025
+        <div class="card section">
+          <h3>Simulations & Virtual Experience</h3>
+          <div class="muted" style="margin-top:8px;line-height:1.45">
+            Deloitte Australia — Cyber Job Simulation (Forage) — Aug 2025<br/>
+            DLA Piper — Global Cyber & Data Privacy (Forage) — Aug 2025<br/>
+            Clifford Chance — Cyber Security Global Simulation (Forage) — Aug 2025<br/>
+            Tata — Cybersecurity Security Analyst (Forage) — Aug 2025<br/>
+            PwC US — Cyber Security Consulting (Forage) — Aug 2025<br/>
+            Telstra — Cybersecurity Simulation (Forage) — Aug 2025<br/>
+            AIG — Shields Up: Cybersecurity (Forage) — Sep 2025<br/>
+            Commonwealth Bank — Intro to Cybersecurity (Forage) — Sep 2025
+          </div>
         </div>
-      </div>
 
-      <div class="card section">
-        <h3>Why hire me?</h3>
-        <ul class="muted">
-          <li>Developer-friendly remediation</li>
-          <li>Manual testing backed by automated checks</li>
-          <li>Quick communication and clear reporting</li>
-          <li>Respect for confidentiality and responsible disclosure</li>
-        </ul>
+        <div class="card section">
+          <h3>Why hire me?</h3>
+          <ul class="muted">
+            <li>Developer-friendly remediation</li>
+            <li>Manual testing backed by automated checks</li>
+            <li>Quick communication and clear reporting</li>
+            <li>Respect for confidentiality and responsible disclosure</li>
+          </ul>
 
-        <div style="margin-top:10px" class="quicklinks">
-          <a href="https://github.com/sripathi-msp" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/sripathi-msp" target="_blank">LinkedIn</a>
-          <a href="mailto:mspsri007@proton.me">mspsri007@proton.me</a>
+          <div style="margin-top:10px" class="quicklinks">
+            <a href="https://github.com/sripathi-msp" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/sripathi-m-61241b349" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:mspsri007@proton.me">mspsri007@proton.me</a>
+          </div>
         </div>
-      </div>
-    </aside>
-  </main>
+      </aside>
+    </main>
 
-  <footer class="footer">© SRIPATHI M — Interactive Resume • Pentest & OSINT Theme</footer>
-</div>
-
-<!-- Modal -->
-<div class="modal-backdrop" id="modalBk" role="dialog" aria-modal="true" style="display:none">
-  <div class="modal" role="document">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <h3 id="modalTitle"></h3>
-      <button class="close" id="closeModal">Close</button>
-    </div>
-    <div id="modalBody" style="margin-top:12px;color:var(--muted);line-height:1.5"></div>
+    <footer class="footer">© SRIPATHI M — Interactive Resume • Pentest & OSINT Theme</footer>
   </div>
-</div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBk" role="dialog" aria-modal="true" style="display:none">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="modalTitle"></h3>
+        <button class="close" id="closeModal" aria-label="Close modal">Close</button>
+      </div>
+      <div id="modalBody" style="margin-top:12px;color:var(--muted);line-height:1.5"></div>
+    </div>
+  </div>
 
 <script>
-// Print / Save as PDF
-document.getElementById('printBtn').addEventListener('click', ()=> window.print());
-document.getElementById('printBtn2').addEventListener('click', ()=> window.print());
-
-// Copy email
-document.getElementById('copyMail').addEventListener('click', ()=>{
-  navigator.clipboard.writeText('mspsri007@proton.me').then(()=> alert('Email copied to clipboard'));
-});
-
-// Theme toggle (simple inversion)
-document.getElementById('toggleTheme').addEventListener('click', ()=>{
-  document.body.classList.toggle('lightMode');
-  if(document.body.classList.contains('lightMode')) {
-    document.body.style.background='linear-gradient(180deg,#f6f8fb,#e9eef8)';
-    document.body.style.color='#061022';
-    document.querySelectorAll('.card').forEach(c=> c.style.background='#ffffff');
-  } else {
-    document.body.style.background='linear-gradient(180deg,#030617,#071023)';
-    document.body.style.color='';
-    document.querySelectorAll('.card').forEach(c=> c.style.background='');
-  }
-});
-
-// Skills toggle
-document.querySelectorAll('.skill').forEach(s=>{
-  s.addEventListener('click', ()=> s.classList.toggle('active'));
-});
-
-// Project modal
-const modalBk = document.getElementById('modalBk');
-const modalTitle = document.getElementById('modalTitle');
-const modalBody = document.getElementById('modalBody');
-document.querySelectorAll('.project').forEach(p=>{
-  p.addEventListener('click', ()=> {
-    modalTitle.textContent = p.dataset.title;
-    // allow simple newline rendering from dataset
-    modalBody.innerHTML = p.dataset.content.replace(/\n/g,'<br/>');
-    modalBk.style.display = 'flex';
+document.addEventListener('DOMContentLoaded', () => {
+  // Skills toggle
+  const skills = document.querySelectorAll('.skill');
+  skills.forEach(skill => {
+    skill.addEventListener('click', () => {
+      skill.classList.toggle('active');
+    });
   });
+
+  // Projects modal
+  const modalBk = document.getElementById('modalBk');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  document.querySelectorAll('.project').forEach(p=>{
+    p.addEventListener('click', ()=> {
+      modalTitle.textContent = p.dataset.title || 'Project';
+      modalBody.innerHTML = (p.dataset.content || '').replace(/\n/g,'<br/>');
+      modalBk.style.display = 'flex';
+      // trap focus (simple)
+      modalBk.querySelector('.close').focus();
+    });
+  });
+  document.getElementById('closeModal').addEventListener('click', ()=> modalBk.style.display = 'none');
+  modalBk.addEventListener('click', (e)=> { if(e.target === modalBk) modalBk.style.display = 'none' });
+
+  // Print buttons
+  document.querySelectorAll('#printBtn2, #printBtn').forEach(b => {
+    if (b) b.addEventListener('click', ()=> window.print());
+  });
+
+  // Copy email
+  const copyMailBtn = document.getElementById('copyMail');
+  if (copyMailBtn) {
+    copyMailBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('mspsri007@proton.me')
+        .then(()=> alert('Email copied to clipboard'))
+        .catch(()=> alert('Unable to copy — please copy manually: mspsri007@proton.me'));
+    });
+  }
+
+  // Theme toggle (simple)
+  const themeToggle = document.getElementById('toggleTheme');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('lightMode');
+    if(document.body.classList.contains('lightMode')) {
+      document.body.style.background='linear-gradient(180deg,#f6f8fb,#e9eef8)';
+      document.body.style.color='#061022';
+      document.querySelectorAll('.card').forEach(c=> c.style.background='#ffffff');
+    } else {
+      document.body.style.background='linear-gradient(180deg,var(--bg-1),var(--bg-2))';
+      document.body.style.color='';
+      document.querySelectorAll('.card').forEach(c=> c.style.background='');
+    }
+  });
+
+  // small safety: ensure Print button (top) works if created dynamically
+  // If your header has a printBtn (older versions), enable it
+  const topPrint = document.getElementById('printBtn');
+  if (topPrint) topPrint.addEventListener('click', ()=> window.print());
 });
-document.getElementById('closeModal').addEventListener('click', ()=> modalBk.style.display = 'none');
-modalBk.addEventListener('click', (e)=> { if(e.target === modalBk) modalBk.style.display = 'none' });
 </script>
 </body>
-
 </html>
-
-
